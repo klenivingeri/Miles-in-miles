@@ -29,9 +29,9 @@ module.exports = {
                 use: 'babel-loader' /** converter o arquivo usando o babel , para um formato que o browser entenda*/
             },
             {
-                test: /\.css$/, /** ler os arquivos com a extensão .cs */
+                test: /\.scss$/, /** ler os arquivos com a extensão .cs */
                 exclude: /node_modules/, /** não ler a node_modules pq cada lib precisa já ter sua config*/
-                use: ['style-loader', 'css-loader'] /** converter o arquivo usando o babel , para um formato que o browser entenda*/
+                use: ['style-loader', 'css-loader', 'sass-loader'] /** converter o arquivo usando o babel , para um formato que o browser entenda*/
             }
         ]
     }

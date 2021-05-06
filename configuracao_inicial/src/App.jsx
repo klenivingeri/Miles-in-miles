@@ -1,4 +1,4 @@
-import './styles/global.css'
+import './styles/global.scss'
 
 export function App(props){
     //throw new Error('tstando 123')
