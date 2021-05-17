@@ -8,7 +8,7 @@ export function RepositoryList(){
         link: 'http://google.com.br'
     }
     return(
-        <seciton >
+        <div>
             <h1 className={styles.title}>Lista de repositórios</h1>
             <ul>
                 <RepositoryItem repository={repository} />
@@ -16,6 +16,6 @@ export function RepositoryList(){
                 <RepositoryItem/>
                 <a href="/Spinner">testando</a>
             </ul>
-        </seciton>
+        </div>
     )
 }
