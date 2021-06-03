@@ -1,0 +1,12 @@
+.caixa{
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap;
+}
+.caixa2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    
+}

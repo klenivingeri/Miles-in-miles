@@ -1,5 +1,14 @@
 # Getting Started with Create React App
 
+[npx create-react-app](terminal)
+
+[npm i react-router-dom](terminal)
+
+[yarn add typescript -D](terminal)
+
+[yarn add @types/react -D](terminal)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
