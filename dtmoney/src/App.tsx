@@ -1,11 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
+import { GlobalStyle } from './styles/global'
+
 
 
 function App() {
   return (
     <div>
-      testando
+      <GlobalStyle />
+     <h1> Hellow World</h1>
     </div>
   );
 }
