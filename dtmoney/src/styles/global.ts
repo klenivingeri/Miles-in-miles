@@ -33,7 +33,7 @@ body{
     background: var(--background);
     -webkit-font-smoothing: antialiased; // Deixa a fonte mais nitida
 }
-body, input, textarea, button{
+body, input, textarea, button, strong, table{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
