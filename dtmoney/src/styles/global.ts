@@ -102,8 +102,9 @@ justify-content:center;
 
 5 ) disable{} cursor: not-allowed ; deixa ele como proibido
 
-6 ) body, input, textarea, button precisa em portão em todos e não apenas no body, pq eles
-    já possuem sua font padrão.
+6 ) body, input, textarea, button 
+    Quando passamos uma font para o body, ele não repassa para o input, text..., por padrão eles tem sua propria fonte,
+    mas dessa forma subscrevemos todos eles
     Por padrao o font-weight é 500 no hmtl por isso fixar 400 que é o padrão da font Poppins
 
 
