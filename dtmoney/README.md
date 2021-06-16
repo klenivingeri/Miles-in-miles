@@ -81,3 +81,26 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
         .then( data => console.log(data))
     },[])
 ~~~
+
+
+ 6 ) `yarn add axios`  axios é um lib especializada em reaquisições.
+ Como vamos buscar dados uma boa pratica é criar uma pasta services/api.js
+ ~~~Javascript
+    /* services/api.js */
+    import axios from 'axios';
+
+    export const api = axios.create({
+        
+    baseURL: 'http://localhost:3000/api',
+    
+    })
+    
+
+    /* comsumindo nossa api  */
+    import { api } from "../../services/api";
+
+    useEffect(()=>{
+        api.get('transactions')
+        .then( response => console.log(response.data))
+        },[])
+~~~
