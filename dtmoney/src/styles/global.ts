@@ -32,8 +32,10 @@ html{
 body{
     background: var(--background);
     -webkit-font-smoothing: antialiased; // Deixa a fonte mais nitida
+    font-family: 'Poppins', sans-serif;
 }
-body, input, textarea, button, strong, table{
+
+input, textarea, button{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
@@ -45,24 +47,24 @@ h1,h2,h3,h4,h5,h6,strong{
 button{
     cursor: pointer
 }
+
 [disabled]{
     opacity: 0.6;
     cursor: not-allowed
 }
 
 .react-modal-overlay{
+    background: rgba(0,0,0,0.5);
 
-background: rgba(0,0,0,0.5);
+    position:fixed; // se a tela tiver scroll ele vai ficar por cima
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
 
-position:fixed; // se a tela tiver scroll ele vai ficar por cima
-top:0;
-bottom:0;
-right:0;
-left:0;
-
-display:flex;
-align-items: center;
-justify-content:center;
+    display:flex;
+    align-items: center;
+    justify-content:center;
 }
 .react-modal-content{
 

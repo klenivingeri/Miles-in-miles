@@ -1,10 +1,10 @@
-### Dtmoney - Rocketseat
+## Dtmoney - Rocketseat
 
 Nesse módulo construiremos uma aplicação front-end web completa utilizando conceitos e ferramentas importantes do ecossistema React como Styled Components, MirageJS, Context API, hooks, Axios e muito mais.
 
  1 ) `yarn create react-app --template typescript`
  
- 2 ) Passar as Dependencies @testing's @types's e typescript para devDependencies no arquivo package.json
+ 2 ) Passar as Dependencies @testing's @types's e typescript para devDependencies no arquivo package.json.
 
  3 ) `yarn add styled-components`
 
@@ -16,33 +16,68 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
 
  4 ) Criar dentro de src styles/global.js utilizando styled-component.
 
- ```
+ ~~~Javascript
     import { createGlobalStyle } from 'styled-components'
 
     export const GlobalStyle = createGlobalStyle`
     
-    //Css aqui
+    /* Css aqui */
 
     `
- ```
+~~~
  
- 4.1 ) Vamos criar um exemplo em cima da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js
- ```
-    // Header/style.js
+ 4.1 ) Vamos criar um exemplo em cima da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js.
+
+~~~Javascript
+    /* Header/style.js */
     import styled from 'styled-components'
 
     export const Container = styled.header`
-    //Css aqui
+    /* Css aqui */
     `
- ```
+~~~
+
     E importamos ele no nosso arquivo assim
-```
-    // Header/index.tsx
-    import {Container } from './styles'
+
+ ~~~Javascript
+    /* Header/index.tsx */
+    import { Container } from './styles'
 
     <Container>
-        //conteudo onde sera aplicado o css
+        /* conteudo onde será aplicado o css */
     </Container>
-```
+~~~
  
+ 5 ) `yarn add miragejs` Utilizado  no desenvolvimento do front-end para fornecer dados dinamicos, sem precisar do back-end.
 
+
+ ~~~Javascript
+    /* index */
+    import { createServer } from 'miragejs'
+
+    createServer({
+    routes() {
+        this.namespace = 'api';
+        /* informa que todas as chamadas vão estar apartir de 'api'  */
+        this.get('/transactions', () => { /* chamada para rota  */
+        return [
+            {
+            id:1,
+            title: 'transacitions 1',
+            amount: 400,
+            type: 'deposit',
+            category: 'Food',
+            createdAt: new Date()
+            }
+        ]
+        })
+    }
+    })
+
+    /* comsumindo nossa api  */
+    useEffect(()=>{
+        fetch('http://localhost:3000/api/transactions')
+        .then( response => response.json())
+        .then( data => console.log(data))
+    },[])
+~~~
