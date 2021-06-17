@@ -35,16 +35,13 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
     export const Container = styled.header`
     /* Css aqui */
     `
-~~~
+    /* E importamos ele no nosso arquivo assim */
 
-    E importamos ele no nosso arquivo assim
-
- ~~~Javascript
     /* Header/index.tsx */
     import { Container } from './styles'
 
     <Container>
-        /* conteudo onde será aplicado o css */
+         // container onde será aplicado o css
     </Container>
 ~~~
  
@@ -103,4 +100,41 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
         api.get('transactions')
         .then( response => console.log(response.data))
         },[])
+~~~
+
+ 7 ) `yarn add react-modal`  `yarn add @types/react-modal -D`, ver mais sobre ['React-modal'](https://github.com/reactjs/react-modal)
+ ~~~Javascript
+    /* App.tsx */
+    import { useState } from 'react'
+    import  Modal  from 'react-modal'
+
+    const [isNewTransactionsModal, setIsNewTransactionsModal ] = useState(false);
+
+    function handleOpenIsNewTransactionsModal(){
+        setIsNewTransactionsModal(true)
+    }
+    function handleCloseIsNewTransactionsModal(){
+        setIsNewTransactionsModal(false)
+    }
+    
+    // consumindo Modal
+    <Modal  
+    isOpen={isNewTransactionsModal} //var
+    onAfterClose={handleCloseIsNewTransactionsModal} //function          
+    >
+        <button onClick={handleCloseIsNewTransactionsModal}> X </button>
+        <h2> Cadastrar Transação</h2>
+    </Modal>
+
+ ~~~
+
+ 8 ) Repasse de informações 
+~~~Javascript
+ 
+
+interface
+
+export function Header(){
+    return()
+}
 ~~~
