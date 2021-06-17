@@ -122,19 +122,39 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
     isOpen={isNewTransactionsModal} //var
     onAfterClose={handleCloseIsNewTransactionsModal} //function          
     >
-        <button onClick={handleCloseIsNewTransactionsModal}> X </button>
+        <button onClick={handleCloseIsNewTransactionsModal}> close </button>
         <h2> Cadastrar Transação</h2>
     </Modal>
 
+    // continua  8 )
+
  ~~~
 
- 8 ) Repasse de informações 
+ 8 ) Repasse de propriedades, no exemplo abaixo estamos recebendo um evento de click do nosso componente filho, e executando uma função no elemento pai
+
 ~~~Javascript
- 
+    /* App.tsx  - pai */
+    export function App{
+    
+    function handleCloseIsNewTransactionsModal(){
+        /* Executa o escopo */
+    }
 
-interface
+    return(
+    <Header onOpenIsNewTransactionsModal={handleCloseIsNewTransactionsModal} />
+    )
 
-export function Header(){
-    return()
-}
+    /* components/Header - filho */
+    interface HeaderProps{
+        onOpenIsNewTransactionsModal: () => void; // passando uma função com propriedade
+    }
+
+    export function Header({ onOpenIsNewTransactionsModal } : HeaderProps){
+        return(
+            <button type="button" onClick={onOpenIsNewTransactionsModal}>
+                Nova transação
+            </button>
+        )
+
+    }
 ~~~

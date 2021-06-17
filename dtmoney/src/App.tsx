@@ -4,6 +4,8 @@ import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global'
 import  Modal  from 'react-modal'
 
+// Deixa o modal por cima da do elemento root, ajuda na acesibilidade (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#root');
 
 function App() {
 
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header onOpenIsNewTransactionsModal={handleOpenIsNewTransactionsModal} />
       <Dashboard />
 
       <Modal  
