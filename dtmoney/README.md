@@ -104,6 +104,7 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
 
  7 ) `yarn add react-modal`  `yarn add @types/react-modal -D`, ver mais sobre ['React-modal'](https://github.com/reactjs/react-modal)
  ~~~Javascript
+ 
     /* App.tsx */
     import { useState } from 'react'
     import  Modal  from 'react-modal'
