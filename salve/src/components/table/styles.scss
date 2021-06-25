@@ -1,0 +1,19 @@
+#table{
+    margin: 0px;
+    padding: 0px;
+    td{
+        margin: 0px;
+        padding: 0px;
+    }
+    td:nth-of-type(1){
+        align-items: center;
+    }
+
+    border: 1px solid black;
+    .thead-tr{
+        background-color: rgb(0, 0, 0, 0.5);
+    }
+    .tbody-tr{
+        background-color: rgb(0, 0, 0, 0.1);
+    }
+}
