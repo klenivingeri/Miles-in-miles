@@ -19,22 +19,19 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
  ~~~Javascript
     import { createGlobalStyle } from 'styled-components'
 
-    export const GlobalStyle = createGlobalStyle`
+    export const GlobalStyle = createGlobalStyle`/* Css aqui */`
     
-    /* Css aqui */
 
-    `
 ~~~
  
- 4.1 ) Vamos criar um exemplo em cima da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js.
+ 4.1 ) Vamos criar um exemplo da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js.
 
 ~~~Javascript
     /* Header/style.js */
     import styled from 'styled-components'
 
-    export const Container = styled.header`
-    /* Css aqui */
-    `
+    export const Container = styled.header`/* Css aqui */`
+    
     /* E importamos ele no nosso arquivo assim */
 
     /* Header/index.tsx */
@@ -44,7 +41,21 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
          // container onde será aplicado o css
     </Container>
 ~~~
- 
+  `
+ 4.2 ) Usamos o "&" quando queremos nos referenciar ao mesmo elemento,
+    seria a mesma coisa que `input::placeholder{}`
+~~~scss
+input{
+
+    &::placeholder{
+        color: var(--text-body); 
+    }
+
+    & + input { /* hack, & pegue o proximo elemento input e altere a propriedade */
+        margin-top: 1rem;
+    }
+}
+~~~
  5 ) `yarn add miragejs` Utilizado  no desenvolvimento do front-end para fornecer dados dinamicos, sem precisar do back-end.
 
 
@@ -81,7 +92,7 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
 
 
  6 ) `yarn add axios`  axios é um lib especializada em reaquisições.
- Como vamos buscar dados uma boa pratica é criar uma pasta services/api.js
+ Como vamos buscar dados, uma boa pratica é criar uma pasta services/api.js
  ~~~Javascript
     /* services/api.js */
     import axios from 'axios';
@@ -137,25 +148,56 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
     /* App.tsx  - pai */
     export function App{
     
-    function handleCloseIsNewTransactionsModal(){
-        /* Executa o escopo */
+      function handleOpenIsNewTransactionsModal() {
+     /* Executa o escopo */
     }
 
     return(
-    <Header onOpenIsNewTransactionsModal={handleCloseIsNewTransactionsModal} />
+        <Header onOpenIsNewTransactionsModal={handleOpenIsNewTransactionsModal} />
     )
-
+~~~
+~~~Javascript
     /* components/Header - filho */
     interface HeaderProps{
-        onOpenIsNewTransactionsModal: () => void; // passando uma função com propriedade
+        onOpenIsNewTransactionsModal: () => void; // passando uma função sem retorno como propriedade
     }
-
     export function Header({ onOpenIsNewTransactionsModal } : HeaderProps){
         return(
             <button type="button" onClick={onOpenIsNewTransactionsModal}>
                 Nova transação
             </button>
         )
-
     }
+~~~
+
+8.1 ) As propriedade do elemento Modal estão sendo alterada no arquivo global.ts
+~~~Javascript
+       <Modal
+            overlayClassName="react-modal-overlay"
+            className="react-modal-content"
+        >
+        </Modal>
+~~~
+~~~scss
+    /* global.ts*/
+.react-modal-overlay{} 
+.react-modal-content{}
+//.react-modal-close{}
+~~~
+
+8.2 ) Modal - Trabalhando com contexto, estamos abrindo o modal em um componente filho, que passa a informação para o componente pai, que repassa para o component irmão.
+
+                _ Component filho
+Component Pai_/
+              \ _ Component filho
+
+
+
+*** Dicas
+
+ `<img>` Importando imagens
+ ~~~Javascript
+    import CloseImg from '../../assets/close.svg'
+
+    <img src={CloseImg} alt="Close" />
 ~~~

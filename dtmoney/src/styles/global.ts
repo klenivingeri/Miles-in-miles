@@ -87,6 +87,8 @@ button{
         filter: brightness(0.8)
     }
 }
+
+
 `
 
 /*
@@ -96,7 +98,7 @@ button{
 
 2 ) font-size: 16px (Desktop padrão)
 
-3 ) hmtl{ Podemos usar o font-size em % com base no valor padrão de 16px 
+3 ) hmtl{ Podemos usar o font-size em % com base no valor padrão de 16px
     pode se fazer o calculo de 16x0,9375 , vamos utilizar rem, ele segue o valor padrão
     que ajudam muito na questão de acessibilidade
 
@@ -104,7 +106,7 @@ button{
 
 5 ) disable{} cursor: not-allowed ; deixa ele como proibido
 
-6 ) body, input, textarea, button 
+6 ) body, input, textarea, button
     Quando passamos uma font para o body, ele não repassa para o input, text..., por padrão eles tem sua propria fonte,
     mas dessa forma subscrevemos todos eles
     Por padrao o font-weight é 500 no hmtl por isso fixar 400 que é o padrão da font Poppins
