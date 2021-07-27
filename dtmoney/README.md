@@ -32,8 +32,8 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
 
     export const Container = styled.header`/* Css aqui */`
     
-    /* E importamos ele no nosso arquivo assim */
-
+    
+    /* importamos ele no nosso arquivo assim */
     /* Header/index.tsx */
     import { Container } from './styles'
 
@@ -51,7 +51,7 @@ input{
         color: var(--text-body); 
     }
 
-    & + input { /* hack, & pegue o proximo elemento input e altere a propriedade */
+    & + input { /* hack, & Pegue todos os input apartir do segundo e aplique */
         margin-top: 1rem;
     }
 }
@@ -187,17 +187,35 @@ input{
 
 8.2 ) Modal - Trabalhando com contexto, estamos abrindo o modal em um componente filho, que passa a informação para o componente pai, que repassa para o component irmão.
 
-                _ Component filho
-Component Pai_/
-              \ _ Component filho
+Component filho -> Component Pai -> Component filho
 
 
 
-*** Dicas
+### Dicas
 
  `<img>` Importando imagens
  ~~~Javascript
     import CloseImg from '../../assets/close.svg'
 
     <img src={CloseImg} alt="Close" />
+~~~
+
+ `yarn add polished`
+ Polished - Como estamos usando Styled Component, temos arquivos JS que manipulam Css, dessa form conseguimos usar scripts helpers, que ajudam na manipulação do Css
+ 
+ ~~~Javascript
+    // styles.js
+    import styled from 'styled-components'
+    import { darken } from 'polished'
+    export const Container = styled.div`
+
+        button{
+        border: 1px solid #d7d7d7;
+        transition: border-color 0.2s;
+
+            &:hover{
+                border-color: ${darken(0.1, '#d7d7d7')}
+            }
+        }
+    `;
 ~~~
