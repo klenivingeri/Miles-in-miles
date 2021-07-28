@@ -60,7 +60,7 @@ input{
 
 
  ~~~Javascript
-    /* index */
+    /* index.tsx */
     import { createServer } from 'miragejs'
 
     createServer({
@@ -194,6 +194,7 @@ Component filho -> Component Pai -> Component filho
 ### Dicas
 
  `<img>` Importando imagens
+
  ~~~Javascript
     import CloseImg from '../../assets/close.svg'
 
@@ -204,11 +205,11 @@ Component filho -> Component Pai -> Component filho
  Polished - Como estamos usando Styled Component, temos arquivos JS que manipulam Css, dessa form conseguimos usar scripts helpers, que ajudam na manipulação do Css
  
  ~~~Javascript
-    // styles.js
+    // NewTransactionsModal/styles.ts
     import styled from 'styled-components'
     import { darken } from 'polished'
-    export const Container = styled.div`
 
+    export const Container = styled.div`
         button{
         border: 1px solid #d7d7d7;
         transition: border-color 0.2s;
@@ -218,4 +219,45 @@ Component filho -> Component Pai -> Component filho
             }
         }
     `;
+~~~
+
+`Styled.component` quase nunca utilizamos className, dentro do arquivo styles.ts consequimos fazer a typing e criar atributos dentro dos elementos
+
+ ~~~Javascript
+    // NewTransactionsModal/styles.ts
+    import styled from 'styled-components'
+    import { darken, transparentize } from 'polished'
+
+    interface RadioBoxProps {
+    isActive:Boolean;
+    activeColor: 'green' | 'red';
+    }
+
+    const colors = {
+        green:'#33cc95',
+        red: '#E52E4D'
+    }
+
+    export const RadioBox = styled.button<RadioBoxProps>`
+    
+        height: 4rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 0.25rem;
+
+        background: ${(props) => props.isActive 
+            ? transparentize(0.9, colors[props.activeColor]) 
+            : 'transparent'};
+    `;
+
+    // NewTransactionsModal/index.tsx
+
+    <RadioBox
+        type="button"
+        onClick={ () => {setType('deposit')}}
+        isActive={ type === 'deposit' } //*
+        activeColor="green" //*
+    >
+            <img src={incomeImg} alt="Entreda" />
+            <span>Entreda</span>
+    </RadioBox>
 ~~~
