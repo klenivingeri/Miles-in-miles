@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import Modal from 'react-modal';
 
 import CloseImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 
-import { Container, TransactionTypeContainer } from './styles'
+import { Container, TransactionTypeContainer, RadioBox } from './styles'
 
 interface NewTransactionsModalProps {
     isOpen: boolean;
@@ -13,6 +14,10 @@ interface NewTransactionsModalProps {
 }
 
 export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactionsModalProps) {
+
+    const [ type, setType ] = useState("")
+
+
     return (
         <Modal
             isOpen={isOpen}
@@ -35,19 +40,23 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
                 />
 
                 <TransactionTypeContainer>
-                    <button
+                    <RadioBox
                     type="button"
+                    onClick={ () => {setType('deposit')}}
+                    isActive={type === 'deposit' }
                     >
                         <img src={incomeImg} alt="Entreda" />
                         <span>Entreda</span>
-                    </button>
+                    </RadioBox>
 
-                    <button
+                    <RadioBox
                     type="button"
+                    onClick={ () => {setType('withdraw')}}
+                    isActive={type === 'withdraw' }
                     >
                         <img src={outcomeImg} alt="Saida" />
                         <span>Saida</span>
-                    </button>
+                    </RadioBox>
 
 
                 </TransactionTypeContainer>
@@ -62,3 +71,9 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
         </Modal>
     )
 }
+
+/*
+
+isActive vem de dentro do styles.ts
+
+*/
