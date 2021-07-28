@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 
 import CloseImg from '../../assets/close.svg'
@@ -15,8 +15,25 @@ interface NewTransactionsModalProps {
 
 export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactionsModalProps) {
 
-    const [ type, setType ] = useState("")
+    const [title, setTitle] = useState('')
+    const [value, setValue] = useState(0)
+    const [category, setCategory] = useState('')
 
+    
+    const [type, setType] = useState('deposit')
+
+
+    function handleCreateNewTransaction(event : FormEvent){
+        event.preventDefault();
+        
+        const obj ={
+            title,
+            value,
+            category,
+            type
+        }
+        console.log(obj)
+    }
 
     return (
         <Modal
@@ -28,15 +45,19 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
             <button type="button" onClick={onRequestClose} className="react-modal-close">
                 <img src={CloseImg} alt="Fechar modal" />
             </button>
-            <Container>
+            <Container onSubmit={handleCreateNewTransaction}>
                 <h2> Cadastrar Transação</h2>
 
                 <input
                     placeholder="Titúlo"
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
                 />
                 <input
                     type="number"
                     placeholder="Valor"
+                    value={value}
+                    onChange={event => setValue(Number(event.target.value))}
                 />
 
                 <TransactionTypeContainer>
@@ -66,6 +87,8 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
 
                 <input
                     placeholder="Categoria"
+                    value={category}
+                    onChange={event => setCategory(event.target.value)}
                 />
                 <button type="submit">
                     Cadastrar

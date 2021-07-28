@@ -190,10 +190,12 @@ input{
 Component filho -> Component Pai -> Component filho
 
 
+9 ) `yarn add polished`
 
-### Dicas
 
- `<img>` Importando imagens
+### Dicas:
+
+ `<img>` - Importando imagens
 
  ~~~Javascript
     import CloseImg from '../../assets/close.svg'
@@ -201,8 +203,7 @@ Component filho -> Component Pai -> Component filho
     <img src={CloseImg} alt="Close" />
 ~~~
 
- `yarn add polished`
- Polished - Como estamos usando Styled Component, temos arquivos JS que manipulam Css, dessa form conseguimos usar scripts helpers, que ajudam na manipulação do Css
+ `polished` - Como estamos usando Styled Component, temos arquivos JS que manipulam Css, dessa form conseguimos usar scripts helpers, que ajudam na manipulação do Css
  
  ~~~Javascript
     // NewTransactionsModal/styles.ts
@@ -221,7 +222,7 @@ Component filho -> Component Pai -> Component filho
     `;
 ~~~
 
-`Styled.component` quase nunca utilizamos className, dentro do arquivo styles.ts consequimos fazer a typing e criar atributos dentro dos elementos
+`Styled.component` - Quase nunca utilizamos className, dentro do arquivo styles.ts consequimos fazer a typing e criar atributos dentro dos elementos
 
  ~~~Javascript
     // NewTransactionsModal/styles.ts
@@ -260,4 +261,49 @@ Component filho -> Component Pai -> Component filho
             <img src={incomeImg} alt="Entreda" />
             <span>Entreda</span>
     </RadioBox>
+~~~
+
+`Form` -  Cancelando o envio do form e pegando os dados
+
+~~~Javascript
+    // /index.tsx
+    export function Forms(){
+
+        const [title, setTitle] = useState('')
+        const [value, setValue] = useState(0)
+
+        console.log({title, value})
+
+        // onSubmit envia o event como parametro, type FormEvent
+        function handleForms(event: FormEvent){
+            //event.preventDefault() cancela o envio do formulario
+            event.preventDefault();
+
+        }
+        return(
+
+            <form onSubmit={handleForms}>
+            
+                <input
+                    placeholder="Titúlo"
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
+                />
+
+                <input
+                    type="number"
+                    placeholder="Valor"
+                    value={value}
+                    onChange={event => setValue(Number(event.target.value))}
+                />
+
+                <button type="submit">
+                    Cadastrar
+                </button>
+                
+            </form>
+        )
+    }
+
+    
 ~~~
