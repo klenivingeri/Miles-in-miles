@@ -37,9 +37,18 @@ export function TransactionsTable(){
                      transactions.map( transaciton =>(
                       <tr key={transaciton.id}>
                       <td>{transaciton.title}</td>
-                      <td className={transaciton.type}>{ transaciton.amount}</td>
+                      <td className={transaciton.type}>
+                        { new Intl.NumberFormat('pt-BR',{
+                          style: 'currency',
+                          currency: 'BRL'
+                        }).format(transaciton.amount)}
+                      </td>
                       <td>{transaciton.category}</td>
-                      <td>{transaciton.createdAt}</td>
+                      <td>
+                        {new Intl.DateTimeFormat('pt-BR').format(
+                          new Date(transaciton.createdAt)
+                        )}
+                        </td>
                       </tr>
                      ))
                    }
