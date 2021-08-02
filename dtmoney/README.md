@@ -24,7 +24,7 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
 
 ~~~
  
- 4.1 ) Vamos criar um exemplo da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js.
+4.1 ) Vamos criar um exemplo da tag html header, onde já existe uma pasta Header com index.tsx e o arquivo style.js.
 
 ~~~Javascript
     /* Header/style.js */
@@ -41,8 +41,8 @@ Nesse módulo construiremos uma aplicação front-end web completa utilizando co
          // container onde será aplicado o css
     </Container>
 ~~~
-  `
- 4.2 ) Usamos o "&" quando queremos nos referenciar ao mesmo elemento,
+  
+4.2 ) Usamos o "&" quando queremos nos referenciar ao mesmo elemento,
     seria a mesma coisa que `input::placeholder{}`
 ~~~scss
 input{
@@ -185,7 +185,7 @@ input{
 //.react-modal-close{}
 ~~~
 
-8.2 ) Modal - Trabalhando com contexto, estamos abrindo o modal em um componente filho, que passa a informação para o componente pai, que repassa para o component irmão.
+8.2 ) Modal - Trabalhando com contexto, estamos abrindo o modal em um componente filho, que passa a informação para o componente pai, que repassa para o seu outro component filho.
 
 Component filho -> Component Pai -> Component filho
 
@@ -193,7 +193,7 @@ Component filho -> Component Pai -> Component filho
 9 ) `yarn add polished`
 
 
-### Dicas:
+## Dicas:
 
  `<img>` - Importando imagens
 
@@ -300,7 +300,7 @@ Component filho -> Component Pai -> Component filho
                 <button type="submit">
                     Cadastrar
                 </button>
-                
+
             </form>
         )
     }
