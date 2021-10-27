@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste de link Should Component Link 1`] = `
+<a
+  href="http://www.google.com.br"
+/>
+`;

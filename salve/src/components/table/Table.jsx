@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Accordion } from './Accordion'
 import './styles.scss'
 
@@ -22,7 +21,7 @@ export function Table(){
                 kr:[{
                     list: '1.1.1.1',
                     type: 'KR',
-                    goal: 'Base ativa de clientes recorrentes',
+                    title: 'Base ativa de clientes recorrentes',
                     team: 'Corp',
                     owner: 'Fred',
                     priority: '900',
@@ -35,7 +34,7 @@ export function Table(){
                 {
                     list: '1.1.1.2',
                     type: 'KR',
-                    goal: 'Venda de novas lojas',
+                    title: 'Venda de novas lojas',
                     team: 'Corp',
                     owner: 'Fabrício',
                     priority: '800',
@@ -48,7 +47,7 @@ export function Table(){
                 {
                     list: '1.1.1.3',
                     type: 'KR',
-                    goal: 'Venda total Mobile Remoto',
+                    title: 'Venda total Mobile Remoto',
                     team: 'Corp',
                     owner: 'Fabrício',
                     priority: '750',
@@ -60,7 +59,7 @@ export function Table(){
                 },{
                     list: '1.1.1.4',
                     type: 'KR',
-                    goal: 'Venda total Mobile Remoto',
+                    title: 'Venda total Mobile Remoto',
                     team: 'Operações',
                     owner: 'Fabrício',
                     priority: '700',
@@ -88,7 +87,7 @@ export function Table(){
                 kr:[{
                     list: '2.1.1.1',
                     type: 'KR',
-                    goal: 'Base ativa de clientes recorrentes',
+                    title: 'Base ativa de clientes recorrentes',
                     team: 'Corp',
                     owner: 'Fred',
                     priority: '400',
@@ -101,7 +100,7 @@ export function Table(){
                 {
                     list: '2.1.1.2',
                     type: 'KR',
-                    goal: 'Venda de novas lojas',
+                    title: 'Venda de novas lojas',
                     team: 'Corp',
                     owner: 'Fabrício',
                     priority: '300',
@@ -114,7 +113,7 @@ export function Table(){
                 {
                     list: '2.1.1.3',
                     type: 'KR',
-                    goal: 'Venda total Mobile Remoto',
+                    title: 'Venda total Mobile Remoto',
                     team: 'Corp',
                     owner: 'Fabrício',
                     priority: '100',
@@ -126,7 +125,7 @@ export function Table(){
                 },{
                     list: '2.1.1.4',
                     type: 'KR',
-                    goal: 'Venda total Mobile Remoto',
+                    title: 'Venda total Mobile Remoto',
                     team: 'Operações',
                     owner: 'Fabrício',
                     priority: '0',
@@ -161,19 +160,19 @@ export function Table(){
                 <td colSpan={5}>
                 {obj.map( index =>{
                     return(
-                        <Accordion key={index.id} tr={index}>
+                        <Accordion key={index.id} tr={index} color="#eeeeee">
                         
                             {index.thm.map( index =>{
                                 return(
-                                <Accordion key={index.id} tr={index}>
+                                <Accordion key={index.id} tr={index} color="#dddddd" >
                         
                                     {index.okr.map( index =>{
                                         return(
-                                            <Accordion key={index.id} tr={index}>
+                                            <Accordion key={index.id} tr={index} color="#cccccc" >
 
                                                 {index.kr.map( index =>{
                                                     return(
-                                                     <Accordion key={index.id} tr={index}>
+                                                     <Accordion key={index.id} tr={index} color="#c9c9c9">
                                     
                                                     </Accordion>
                                                     )

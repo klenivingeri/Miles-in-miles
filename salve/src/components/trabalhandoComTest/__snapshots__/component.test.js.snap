@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testando component Mostra componente 1`] = `
+<div
+  style={
+    Object {
+      "background": "red",
+      "fontSize": "20px",
+      "height": "200px",
+      "margin": "0 auto",
+      "marginTop": "100px",
+      "padding": "10px",
+      "width": "200px",
+    }
+  }
+>
+  <div>
+    Texto 
+    Titulo
+    : 
+    <br />
+     Numero: 
+    1000
+  </div>
+  <a
+    href="#!"
+    onMouseEnter={[Function]}
+  >
+    Google | click
+  </a>
+   
+  <br />
+  <a
+    href="#!"
+    onClick={[Function]}
+  >
+    Bing | click
+  </a>
+   
+  <br />
+  <a
+    href="http://google.com.br"
+  >
+    Google
+  </a>
+</div>
+`;
